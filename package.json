@@ -4,12 +4,20 @@
   "description": "simple chat app using node js language",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/server.js",
+    "test": "mocha server/**/*.test.js",
+    "test-watch": "nodemon --exec 'npm test'"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.2",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "nodemon": "^1.13.3",
+    "socket.io": "^2.0.4"
+  },
+  "devDependencies": {
+    "expect": "^1.20.2",
+    "mocha": "^4.0.1"
   }
 }
