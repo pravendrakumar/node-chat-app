@@ -22,15 +22,11 @@ io.on('connection',(socket)=>{
     //     creaedAt:new Date().getTime()
     // });
 
-    socket.on('createMessage',(message)=>{
-        // io.emit('newMessage',{
-        //     from:message.from,
-        //     text:message.text,
-        //     creaedAt: new Date().getTime()
-        // });
-
+    socket.on('createMessage',(message,callback)=>{
+        io.emit('newMessage',generateMessage(message.from,message.text));
+        callback('From the server');
         //for broadcast message to everyone except the sender
-        socket.broadcast.emit('createMessage',generateMessage(message.from,message.text))
+        //socket.broadcast.emit('createMessage',generateMessage(message.from,message.text))
         console.log('new message encounter at server',message);
     });
 
